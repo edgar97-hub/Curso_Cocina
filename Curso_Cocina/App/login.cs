@@ -55,43 +55,60 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-               command = new SqlCommand("Select id, usuario, clave,id_rol  from Chef.Usuario INNER JOIN Chef.Roles_Persona  ON  Id = id_usuario and  usuario = '" + user_name.Text + "' and clave = '" + Value + "'", connection);
 
-               connection.Open();
-               SqlDataAdapter adapt = new SqlDataAdapter(command);
-               DataSet ds = new DataSet();
-               adapt.Fill(ds);
-               connection.Close();
-               int count = ds.Tables[0].Rows.Count;
-              
-               if (count == 1)
-               {
-                   Value = "";
-                   richTextlent = 1;
-                   MessageBox.Show("Login Successful!");
-                    MessageBox.Show("user_Id_Rol: "+ ds.Tables[0].Rows[0]["id_rol"]);
-                   this.Hide();
-                   int id_Rol = Int32.Parse(ds.Tables[0].Rows[0]["id_rol"].ToString());
-                    id_Rol = id_Rol - 1;
-                    for (int x= 0; x < listForm.Count(); x++)
-                    {
-                        if (x == id_Rol)
-                        {
-                            listForm[x].Show();
-                        }
-                    }
-                }
-               else
-               {
-                   MessageBox.Show("Login Failed!");
-               }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            Gestion_cursos gestion_cursos = new Gestion_cursos();
+            gestion_cursos.Show();
+            this.Hide();
+
+
+
+            //try
+            //{
+            //    command = new SqlCommand("Select id, usuario, clave,id_rol  from Chef.Usuario INNER JOIN Chef.Roles_Persona  ON  Id = id_usuario and  usuario = '" + user_name.Text + "' and clave = '" + Value + "'", connection);
+
+            //    connection.Open();
+            //    SqlDataAdapter adapt = new SqlDataAdapter(command);
+            //    DataSet ds = new DataSet();
+            //    adapt.Fill(ds);
+            //    connection.Close();
+            //    int count = ds.Tables[0].Rows.Count;
+
+            //    if (count == 1)
+            //    {
+            //        Value = "";
+            //        richTextlent = 1;
+            //        MessageBox.Show("Login Successful!");
+            //        MessageBox.Show("user_Id_Rol: " + ds.Tables[0].Rows[0]["id_rol"]);
+            //        this.Hide();
+            //        int id_Rol = Int32.Parse(ds.Tables[0].Rows[0]["id_rol"].ToString());
+            //        id_Rol = id_Rol - 1;
+
+
+
+            //        Gestion_cursos gestion_cursos = new Gestion_cursos();
+            //        gestion_cursos.Show();
+            //        this.Hide();
+
+
+
+            //        //for (int x= 0; x < listForm.Count(); x++)
+            //        //{
+            //        //    if (x == id_Rol)
+            //        //    {
+            //        //        listForm[x].Show();
+            //        //    }
+            //        //}
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Login Failed!");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -107,6 +124,11 @@ namespace WindowsFormsApp1
            
 
 
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -35,7 +35,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.manager_cursos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.gestion_cursos1 = new WindowsFormsApp1.Gestion_cursos();
+            this.gestion_cursos1 = new WindowsFormsApp1.Gestion_curso();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,6 +167,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
-        private Gestion_cursos gestion_cursos1;
+        private Gestion_curso gestion_cursos1;
     }
 }

@@ -78,7 +78,37 @@ namespace DAC
 
 
         }
+        public SqlDataReader search_curso(string richTextBox1, DataGridViewRow dataGridViewRow)
+        {
+            if (richTextBox1 != "")
+            {
+                cmd = new SqlCommand("Ayuda_curso", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id_curso", richTextBox1);
+                cn.Open();
+                loDataReader = cmd.ExecuteReader();
+                cn.Close();
+                return loDataReader;
 
+            }
+            if (dataGridViewRow != null)
+            {
+                cmd = new SqlCommand("Seleccionar_UnProducto", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@PROD_ID", dataGridViewRow.Cells[0].Value);
+                cn.Open();
+                loDataReader = cmd.ExecuteReader();
+                cn.Close();
+                return loDataReader;
+
+            }
+            return null;
+
+
+
+        }
 
 
     }
